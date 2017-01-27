@@ -5,7 +5,8 @@
     <classes>
       <class name="com.example.tests.GmailLogin">
         <methods>
-          <include name="TestCase1_GmailSignIn"/>
+          <include name="TestCase3_testLogOutMail"/>
+          <include name="TestCase2_testComposeMail"/>
           <include name="tearDown"/>
           <include name="setUp"/>
         </methods>

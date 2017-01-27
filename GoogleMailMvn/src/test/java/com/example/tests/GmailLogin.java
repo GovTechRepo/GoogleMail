@@ -21,7 +21,7 @@ public class GmailLogin {
 	    driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 	  }
 
-	  @Test
+	  @Test(priority=1)
 	  public void TestCase1_GmailSignIn() throws Exception {
 	    driver.get(baseUrl + "/?gws_rd=ssl");
 	    driver.findElement(By.linkText("Gmail")).click();
@@ -31,6 +31,32 @@ public class GmailLogin {
 	    driver.findElement(By.id("Passwd")).clear();
 	    driver.findElement(By.id("Passwd")).sendKeys("govtechtesting1");
 	    driver.findElement(By.id("signIn")).click();
+	  }
+	  
+	  @Test(priority=2)
+	  public void TestCase2_testComposeMail() throws Exception {
+	    driver.get("https://mail.google.com/mail/u/0/?tab=wm#inbox");
+	//    assertEquals(driver.getTitle(), "");
+	//    assertEquals(driver.getTitle(), "Inbox (5) - govtechtesting@gmail.com - Gmail");
+	//    driver.findElement(By.xpath("//div[@id=':5b']/div/div")).click();
+	    driver.findElement(By.xpath("html/body/div[7]/div[3]/div/div[2]/div[1]/div[1]/div[1]/div[2]/div/div/div[1]/div/div")).click();
+	    driver.findElement(By.cssSelector("div.Sr")).click();
+	    driver.findElement(By.id(":a9")).click();
+	    driver.findElement(By.id(":a9")).clear();
+	    driver.findElement(By.id(":a9")).sendKeys("TestMail_01");
+	    driver.findElement(By.id(":9z")).click();
+	  }
+	  
+	  @Test(priority=3)
+	  public void TestCase3_testLogOutMail() throws Exception {
+	    driver.get("https://mail.google.com/mail/u/0/?tab=wm#inbox");
+	    assertEquals(driver.getTitle(), "Inbox (6) - govtechtesting@gmail.com - Gmail");
+	    driver.findElement(By.cssSelector("span.gb_9a.gbii")).click();
+	    driver.findElement(By.id("gb_71")).click();
+	    assertEquals(driver.getTitle(), "Google Accounts");
+	    assertEquals(driver.getTitle(), "Google Accounts");
+	    assertEquals(driver.getTitle(), "Google Accounts");
+	    assertEquals(driver.getTitle(), "Gmail");
 	  }
 	  
 	  
