@@ -36,9 +36,8 @@ public class GmailLogin {
 	  @Test(priority=2)
 	  public void TestCase2_testComposeMail() throws Exception {
 	    driver.get("https://mail.google.com/mail/u/0/?tab=wm#inbox");
-	//    assertEquals(driver.getTitle(), "");
-	//    assertEquals(driver.getTitle(), "Inbox (5) - govtechtesting@gmail.com - Gmail");
-	//    driver.findElement(By.xpath("//div[@id=':5b']/div/div")).click();
+	//  assertEquals(driver.getTitle(), "Inbox (5) - govtechtesting@gmail.com - Gmail");
+	    driver.findElement(By.xpath(".//*[@id=':5l']/div/div")).click();
 	    driver.findElement(By.xpath("html/body/div[7]/div[3]/div/div[2]/div[1]/div[1]/div[1]/div[2]/div/div/div[1]/div/div")).click();
 	    driver.findElement(By.cssSelector("div.Sr")).click();
 	    driver.findElement(By.id(":a9")).click();
